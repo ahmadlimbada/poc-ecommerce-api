@@ -7,3 +7,7 @@
 6. Create .env file with mongo url
 7. import dot env, configure it and use as per requirement
 8. Import and connect mongoose
+9. use express.json
+10. Create routes and export it in router folder
+11. Import router and use it in app.use
+12. Create Models and export it in models folder

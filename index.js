@@ -10,6 +10,9 @@ const mongoose = require("mongoose");
 //import dotenv
 const dotenv = require("dotenv");
 
+//import Route
+const userRoute = require("./routes/user");
+
 //configure dotenv
 dotenv.config();
 
@@ -22,6 +25,11 @@ mongoose
   .catch((err) => {
     console.log("Db connection failed:", err);
   });
+
+//USe JSON
+app.use(express.json());
+//use routes
+app.use("/api/users", userRoute);
 
 //listenting to port
 app.listen(process.env.API_PORT || 8080, () => {
