@@ -12,6 +12,7 @@ const dotenv = require("dotenv");
 
 //import Route
 const userRoute = require("./routes/user");
+const authRoute = require("./routes/auth");
 
 //configure dotenv
 dotenv.config();
@@ -28,7 +29,9 @@ mongoose
 
 //USe JSON
 app.use(express.json());
+
 //use routes
+app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 
 //listenting to port
