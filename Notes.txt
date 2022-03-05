@@ -1,3 +1,9 @@
 1. Create folder
+2. Create index.js
 2. do npm init -i
 3. do npm i express mongoose dotenv nodemon
+4. In package.json do script : {start:"nodemon index.js"}
+5. Import and create express app and start listening on port
+6. Create .env file with mongo url
+7. import dot env, configure it and use as per requirement
+8. Import and connect mongoose
