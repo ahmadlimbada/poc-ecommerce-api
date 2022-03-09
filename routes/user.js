@@ -1,4 +1,6 @@
 const User = require("../models/User");
+const Cart = require("../models/Cart");
+
 const {
   verifyTokenAndAuthorize,
   verifyTokenAndAdmin,
@@ -31,6 +33,7 @@ router.put("/:id", verifyTokenAndAuthorize, async (req, res) => {
 //Delete User
 router.delete("/:id", verifyTokenAndAuthorize, async (req, res) => {
   try {
+    await Cart.deleteMany({ userId: req.params.id });
     await User.findByIdAndDelete(req.params.id);
     res.status(200).json({ status: 200, success: true, data: "User Deleted" });
   } catch (err) {
