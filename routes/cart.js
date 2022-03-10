@@ -2,7 +2,7 @@ const Cart = require("../models/Cart");
 const {
   verifyTokenAndAuthorize,
   verifyTokenAndAdmin,
-} = require("./verifyToken");
+} = require("../middleware/auth");
 
 //get router from express
 const router = require("express").Router();
