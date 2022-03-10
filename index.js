@@ -10,12 +10,8 @@ const mongoose = require("mongoose");
 //import dotenv
 const dotenv = require("dotenv");
 
-//import Route
-const userRoute = require("./routes/user");
-const authRoute = require("./routes/auth");
-const productRoute = require("./routes/product");
-const cartRoute = require("./routes/cart");
-const orderRoute = require("./routes/order");
+//import routes
+const router = require("./routes");
 
 //configure dotenv
 dotenv.config();
@@ -32,13 +28,7 @@ mongoose
 
 //USe JSON
 app.use(express.json());
-
-//use routes
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/products", productRoute);
-app.use("/api/carts", cartRoute);
-app.use("/api/orders", orderRoute);
+app.use(router);
 
 //listenting to port
 app.listen(process.env.API_PORT || 8080, () => {
